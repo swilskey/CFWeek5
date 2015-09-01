@@ -30,7 +30,6 @@
 		228E6CC01B952AD800FABD04 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 228E6CB71B952AD800FABD04 /* libz.dylib */; };
 		228E6CC11B952AD800FABD04 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228E6CB81B952AD800FABD04 /* QuartzCore.framework */; };
 		228E6CC21B952AD900FABD04 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228E6CB91B952AD800FABD04 /* Security.framework */; };
-		228E6CC31B952AD900FABD04 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228E6CBA1B952AD800FABD04 /* StoreKit.framework */; };
 		228E6CC41B952AD900FABD04 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228E6CBB1B952AD800FABD04 /* SystemConfiguration.framework */; };
 		228E6CC71B952B3600FABD04 /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 228E6CC61B952B3600FABD04 /* Keys.m */; };
 		228E6CD31B9604E700FABD04 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 228E6CD21B9604E700FABD04 /* LocationService.m */; };
@@ -79,7 +78,6 @@
 		228E6CB71B952AD800FABD04 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		228E6CB81B952AD800FABD04 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		228E6CB91B952AD800FABD04 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		228E6CBA1B952AD800FABD04 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		228E6CBB1B952AD800FABD04 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		228E6CC51B952B3600FABD04 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
 		228E6CC61B952B3600FABD04 /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 				228E6CC01B952AD800FABD04 /* libz.dylib in Frameworks */,
 				228E6CC11B952AD800FABD04 /* QuartzCore.framework in Frameworks */,
 				228E6CC21B952AD900FABD04 /* Security.framework in Frameworks */,
-				228E6CC31B952AD900FABD04 /* StoreKit.framework in Frameworks */,
 				228E6CC41B952AD900FABD04 /* SystemConfiguration.framework in Frameworks */,
 				228E6CB21B952A6E00FABD04 /* AudioToolbox.framework in Frameworks */,
 				228E6CA11B9528A200FABD04 /* MapKit.framework in Frameworks */,
@@ -152,9 +149,9 @@
 		228E6C791B95289C00FABD04 /* RemindMe */ = {
 			isa = PBXGroup;
 			children = (
-				228E6CD01B9604B300FABD04 /* Model */,
 				228E6C7E1B95289C00FABD04 /* AppDelegate.h */,
 				228E6C7F1B95289C00FABD04 /* AppDelegate.m */,
+				228E6CD01B9604B300FABD04 /* Model */,
 				228E6CCA1B95337300FABD04 /* Controller */,
 				228E6CC91B95336400FABD04 /* View */,
 				228E6CCF1B96049E00FABD04 /* Services */,
@@ -202,7 +199,6 @@
 				228E6CB71B952AD800FABD04 /* libz.dylib */,
 				228E6CB81B952AD800FABD04 /* QuartzCore.framework */,
 				228E6CB91B952AD800FABD04 /* Security.framework */,
-				228E6CBA1B952AD800FABD04 /* StoreKit.framework */,
 				228E6CBB1B952AD800FABD04 /* SystemConfiguration.framework */,
 				228E6CB11B952A6E00FABD04 /* AudioToolbox.framework */,
 				228E6CA31B952A3900FABD04 /* Bolts.framework */,
@@ -322,7 +318,11 @@
 				TargetAttributes = {
 					228E6C761B95289C00FABD04 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = A679PU7XBF;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -590,6 +590,7 @@
 				228E6C9C1B95289C00FABD04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		228E6C9D1B95289C00FABD04 /* Build configuration list for PBXNativeTarget "RemindMeTests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +599,7 @@
 				228E6C9F1B95289C00FABD04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

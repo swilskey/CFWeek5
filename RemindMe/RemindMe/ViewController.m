@@ -11,8 +11,9 @@
 #import "Queue.h"
 #import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController () <MKMapViewDelegate>
+@interface ViewController () <MKMapViewDelegate,CLLocationManagerDelegate>
 
 @property (weak,nonatomic) IBOutlet MKMapView *mapView;
 @property (strong,nonatomic) UILongPressGestureRecognizer *longPressRecognizer;
@@ -27,6 +28,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  self.mapView.delegate = self;
   
   [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(47.623557, -122.336071), 200, 200)];
   self.longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
@@ -69,6 +71,12 @@
 
 - (IBAction)location3:(UIButton *)sender {
   [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(53.483132, -2.200109), 200, 200) animated:true];
+}
+
+#pragma mark - CLLocationManagerDelgate
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+  
 }
 
 #pragma mark - MKMapViewDelegate

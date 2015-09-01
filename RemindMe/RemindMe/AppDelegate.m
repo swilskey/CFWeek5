@@ -23,8 +23,8 @@
   [Parse enableLocalDatastore];
   
   // Initialize Parse.
-  [Parse setApplicationId:[Keys getApplicationKey]
-                clientKey:[Keys getClientId]];
+  [Parse setApplicationId:kApplicationKey
+                clientKey:kClientId];
   
   // [Optional] Track statistics around application opens.
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
