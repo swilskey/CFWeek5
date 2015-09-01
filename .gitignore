@@ -2,8 +2,8 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-Keys.m
-Keys.h
+**/Keys.m
+**/Keys.h
 
 ## Build generated
 build/
