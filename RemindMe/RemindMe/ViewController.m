@@ -12,8 +12,11 @@
 #import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@interface ViewController () <MKMapViewDelegate>
+
+@property (weak,nonatomic) IBOutlet MKMapView *mapView;
+@property (strong,nonatomic) UILongPressGestureRecognizer *longPressRecognizer;
+
 - (IBAction)location1:(UIButton *)sender;
 - (IBAction)location2:(UIButton *)sender;
 - (IBAction)location3:(UIButton *)sender;
@@ -24,7 +27,10 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
   [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(47.623557, -122.336071), 200, 200)];
+  self.longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
+  [self.mapView addGestureRecognizer:self.longPressRecognizer];
   
   //Test Stack and Queue
   Stack *stack = [[Stack alloc] init];
@@ -45,6 +51,14 @@
   [super didReceiveMemoryWarning];
 }
 
+- (void)longPressAction:(UILongPressGestureRecognizer *)pressed {
+  if(pressed.state == UIGestureRecognizerStateBegan) {
+    NSLog(@"Press Location On Map");
+  }
+}
+
+#pragma mark - IBActions
+
 - (IBAction)location1:(UIButton *)sender {
   [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(45.481225, -122.697245), 200, 200) animated:true];
 }
@@ -57,4 +71,10 @@
   [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(53.483132, -2.200109), 200, 200) animated:true];
 }
 
+#pragma mark - MKMapViewDelegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+  
+  return nil;
+}
 @end
