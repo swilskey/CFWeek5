@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,92 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TKH-BF-FdD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="532"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJ8-qu-odf">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1Z-i1-Nvk">
+                                        <rect key="frame" x="8" y="0.0" width="41" height="60"/>
+                                        <state key="normal" title="Home">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="location1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8xw-sd-2wZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-mf-B7c">
+                                        <rect key="frame" x="487" y="0.0" width="105" height="60"/>
+                                        <state key="normal" title="Etihad Stadium">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="location3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYj-1k-DP8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ix4-tE-v0m">
+                                        <rect key="frame" x="257" y="0.0" width="85" height="60"/>
+                                        <state key="normal" title="Disney Land">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="location2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Vb-kt-NIh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3XA-uU-gy0"/>
+                                    <constraint firstItem="h1Z-i1-Nvk" firstAttribute="leading" secondItem="hJ8-qu-odf" secondAttribute="leading" constant="8" id="4FM-8l-deV"/>
+                                    <constraint firstItem="h1Z-i1-Nvk" firstAttribute="top" secondItem="hJ8-qu-odf" secondAttribute="top" id="56h-ok-6gu"/>
+                                    <constraint firstAttribute="bottom" secondItem="EUn-mf-B7c" secondAttribute="bottom" id="HeT-ZY-U3T"/>
+                                    <constraint firstAttribute="trailing" secondItem="EUn-mf-B7c" secondAttribute="trailing" constant="8" id="Ph1-gw-lgY"/>
+                                    <constraint firstItem="Ix4-tE-v0m" firstAttribute="top" secondItem="hJ8-qu-odf" secondAttribute="top" id="THb-lm-aPl"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ix4-tE-v0m" secondAttribute="bottom" id="Ye6-DO-JhY"/>
+                                    <constraint firstItem="EUn-mf-B7c" firstAttribute="top" secondItem="hJ8-qu-odf" secondAttribute="top" id="ZXU-Bq-9xk"/>
+                                    <constraint firstAttribute="bottom" secondItem="h1Z-i1-Nvk" secondAttribute="bottom" id="fy8-tA-fhF"/>
+                                    <constraint firstAttribute="centerX" secondItem="Ix4-tE-v0m" secondAttribute="centerX" id="gaJ-i9-YTr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hJ8-qu-odf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="5Mg-3i-ROc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hJ8-qu-odf" secondAttribute="trailing" constant="-16" id="Ceu-zi-f0C"/>
+                            <constraint firstItem="TKH-BF-FdD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="RoB-yv-yn5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TKH-BF-FdD" secondAttribute="trailing" constant="-16" id="WB3-0T-syQ"/>
+                            <constraint firstItem="TKH-BF-FdD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="jfJ-0Y-n8t"/>
+                            <constraint firstItem="hJ8-qu-odf" firstAttribute="top" secondItem="TKH-BF-FdD" secondAttribute="bottom" constant="8" id="jsp-3z-HBr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hJ8-qu-odf" secondAttribute="bottom" id="pIA-Ot-PeD"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="TKH-BF-FdD" id="U9n-BI-gaJ"/>
+                        <segue destination="uiX-x0-XB9" kind="show" identifier="ShowReminderDetailView" id="chh-0M-Bqz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Add Reminder Detail View Controller-->
+        <scene sceneID="Tq2-yv-s9e">
+            <objects>
+                <viewController id="uiX-x0-XB9" customClass="AddReminderDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DKa-kH-LfT"/>
+                        <viewControllerLayoutGuide type="bottom" id="x5q-dR-mQ2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LIk-vo-TGS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DsM-Pm-g6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="353"/>
         </scene>
     </scenes>
 </document>
