@@ -1,5 +1,5 @@
 //
-//  Constants.h
+//  StringSum.h
 //  RemindMe
 //
 //  Created by Sam Wilskey on 9/3/15.
@@ -8,5 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-extern double const kDefaultAnimationTime;
-extern NSString *const kReminderNotification;
+@interface StringSum : NSObject
+
+@end

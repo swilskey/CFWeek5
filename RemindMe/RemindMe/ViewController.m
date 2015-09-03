@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "AddReminderDetailViewController.h"
+#import "Constants.h"
+#import "Reminder.h"
 #import "Stack.h"
 #import "Queue.h"
 #import "Anagrams.h"
@@ -20,6 +23,8 @@
 
 @property (strong,nonatomic) UILongPressGestureRecognizer *longPressRecognizer;
 @property (strong,nonatomic) CLLocationManager *locationManager;
+@property (strong,nonatomic) NSMutableArray *reminders;
+
 
 @property (weak,nonatomic) IBOutlet MKMapView *mapView;
 - (IBAction)location1:(UIButton *)sender;
@@ -32,6 +37,8 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  self.reminders = [[NSMutableArray alloc] init];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderNotification:) name:kReminderNotification object:nil];
   
   self.mapView.delegate = self;
   self.mapView.showsUserLocation = true;
@@ -47,6 +54,7 @@
   [self.mapView addGestureRecognizer:self.longPressRecognizer];
   
   //Code Challenges
+  /*
   Stack *stack = [[Stack alloc] init];
   [stack push:@35];
   [stack push:@54];
@@ -64,11 +72,18 @@
   if([Anagrams isStringAnagram:string1 of:string2]) {
     NSLog(@"is Anagram");
   }
+   */
   
 }
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
+}
+
+- (void)reminderNotification:(NSNotification *)notification {
+  [self.reminders addObject:[notification.userInfo objectForKey:@"reminder"]];
+  Reminder *reminder = [self.reminders objectAtIndex:0];
+  NSLog(@"Reminder Name: %@", reminder.title);
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer *)pressed {
@@ -85,7 +100,11 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  MKPinAnnotationView *view = (MKPinAnnotationView *)sender;
+  CLLocationCoordinate2D location = [view.annotation coordinate];
+  AddReminderDetailViewController *destinationVC = [segue destinationViewController];
   
+  destinationVC.location = location;
 }
 
 #pragma mark - IBActions
@@ -143,6 +162,11 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
   [self performSegueWithIdentifier:@"ShowReminderDetailView" sender:view];
+}
+
+#pragma mark - Dealocate
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

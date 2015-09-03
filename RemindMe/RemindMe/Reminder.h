@@ -12,4 +12,6 @@
 + (NSString *)parseClassName;
 @property (strong,nonatomic) NSString *title;
 @property (strong,nonatomic) PFGeoPoint *location;
+@property (nonatomic) int radius;
+@property (strong,nonatomic) NSString *userId;
 @end

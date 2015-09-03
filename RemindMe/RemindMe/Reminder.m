@@ -18,6 +18,8 @@
 
 @dynamic title;
 @dynamic location;
+@dynamic radius;
+@dynamic userId;
 
 + (NSString * __nonnull)parseClassName {
   return @"Reminder";

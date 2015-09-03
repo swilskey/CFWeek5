@@ -42,6 +42,7 @@
 		22D64EC31B98A4D500BB7309 /* ParseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64EC21B98A4D500BB7309 /* ParseService.m */; };
 		22D64EC61B98AE1600BB7309 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64EC51B98AE1600BB7309 /* Constants.m */; };
 		22D64ECA1B98AFD100BB7309 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64EC91B98AFD100BB7309 /* SignUpViewController.m */; };
+		22D64ECD1B98B71300BB7309 /* StringSum.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64ECC1B98B71300BB7309 /* StringSum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,8 @@
 		22D64EC51B98AE1600BB7309 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		22D64EC81B98AFD100BB7309 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		22D64EC91B98AFD100BB7309 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		22D64ECB1B98B71300BB7309 /* StringSum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringSum.h; sourceTree = "<group>"; };
+		22D64ECC1B98B71300BB7309 /* StringSum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringSum.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +274,8 @@
 				228E6CDA1B96142B00FABD04 /* Queue.m */,
 				229945FD1B9752A00001C305 /* Anagrams.h */,
 				229945FE1B9752A00001C305 /* Anagrams.m */,
+				22D64ECB1B98B71300BB7309 /* StringSum.h */,
+				22D64ECC1B98B71300BB7309 /* StringSum.m */,
 			);
 			name = "Code Challenges";
 			path = RemindMe;
@@ -430,6 +435,7 @@
 				228E6C7D1B95289C00FABD04 /* main.m in Sources */,
 				22D64ECA1B98AFD100BB7309 /* SignUpViewController.m in Sources */,
 				228E6CDE1B9617F900FABD04 /* AddReminderDetailViewController.m in Sources */,
+				22D64ECD1B98B71300BB7309 /* StringSum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

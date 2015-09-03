@@ -46,7 +46,7 @@
         
         UINavigationController *destination = [self.storyboard instantiateViewControllerWithIdentifier:@"MainNavController"];
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [UIView transitionWithView:appDelegate.window duration:defaultAnimationTime options: UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        [UIView transitionWithView:appDelegate.window duration:kDefaultAnimationTime options: UIViewAnimationOptionTransitionFlipFromRight animations:^{
           appDelegate.window.rootViewController = destination;
           
         } completion:^(BOOL finished) {

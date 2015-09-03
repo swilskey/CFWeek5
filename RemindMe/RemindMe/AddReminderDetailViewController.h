@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface AddReminderDetailViewController : UIViewController
-
+@property CLLocationCoordinate2D location;
 @end

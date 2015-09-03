@@ -7,8 +7,15 @@
 //
 
 #import "AddReminderDetailViewController.h"
+#import "Constants.h"
+#import "Reminder.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface AddReminderDetailViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *titleInput;
+@property (weak, nonatomic) IBOutlet UISlider *radiusInput;
+
+@property (strong,nonatomic) Reminder *reminder;
 
 @end
 
@@ -33,5 +40,35 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)saveReminder:(UIButton *)sender {
+  NSLog(@"Button Pressed");
+  NSString *title = self.titleInput.text;
+  int radius = (int) self.radiusInput.value;
+  
+  double lat = self.location.latitude;
+  double lon = self.location.longitude;
+  PFGeoPoint *reminderLocation = [PFGeoPoint geoPointWithLatitude:lat longitude:lon];
+  
+  self.reminder = [Reminder object];
+  self.reminder.title = title;
+  self.reminder.radius = radius;
+  self.reminder.location = reminderLocation;
+  self.reminder.userId = [PFUser currentUser].objectId;
+  
+  [self.reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    if(succeeded) {
+      NSLog(@"Save Successfull");
+      NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.reminder forKey:@"reminder"];
+      [[NSNotificationCenter defaultCenter] postNotificationName:kReminderNotification object:self userInfo:userInfo];
+    } else {
+      NSLog(@"Error Saving Reminder");
+    }
+  }];
+}
+
+- (IBAction)deleteReminder:(id)sender {
+}
+
+
 
 @end

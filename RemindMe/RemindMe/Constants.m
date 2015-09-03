@@ -8,4 +8,5 @@
 
 #import "Constants.h"
 
-double const defaultAnimationTime = 0.3;
+double const kDefaultAnimationTime = 0.3;
+NSString *const kReminderNotification = @"ReminderNotification";
