@@ -36,6 +36,12 @@
 		228E6CD81B96107600FABD04 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 228E6CD71B96107600FABD04 /* Stack.m */; };
 		228E6CDB1B96142B00FABD04 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 228E6CDA1B96142B00FABD04 /* Queue.m */; };
 		228E6CDE1B9617F900FABD04 /* AddReminderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228E6CDD1B9617F900FABD04 /* AddReminderDetailViewController.m */; };
+		229945FF1B9752A00001C305 /* Anagrams.m in Sources */ = {isa = PBXBuildFile; fileRef = 229945FE1B9752A00001C305 /* Anagrams.m */; };
+		229946021B9762CE0001C305 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229946011B9762CE0001C305 /* LoginViewController.m */; };
+		22D64EC01B9799E100BB7309 /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64EBF1B9799E100BB7309 /* Reminder.m */; };
+		22D64EC31B98A4D500BB7309 /* ParseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64EC21B98A4D500BB7309 /* ParseService.m */; };
+		22D64EC61B98AE1600BB7309 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64EC51B98AE1600BB7309 /* Constants.m */; };
+		22D64ECA1B98AFD100BB7309 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D64EC91B98AFD100BB7309 /* SignUpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +95,18 @@
 		228E6CDA1B96142B00FABD04 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		228E6CDC1B9617F900FABD04 /* AddReminderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReminderDetailViewController.h; sourceTree = "<group>"; };
 		228E6CDD1B9617F900FABD04 /* AddReminderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderDetailViewController.m; sourceTree = "<group>"; };
+		229945FD1B9752A00001C305 /* Anagrams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anagrams.h; sourceTree = "<group>"; };
+		229945FE1B9752A00001C305 /* Anagrams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Anagrams.m; sourceTree = "<group>"; };
+		229946001B9762CE0001C305 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		229946011B9762CE0001C305 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		22D64EBE1B9799E100BB7309 /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		22D64EBF1B9799E100BB7309 /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
+		22D64EC11B98A4D500BB7309 /* ParseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseService.h; sourceTree = "<group>"; };
+		22D64EC21B98A4D500BB7309 /* ParseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseService.m; sourceTree = "<group>"; };
+		22D64EC41B98AE1600BB7309 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		22D64EC51B98AE1600BB7309 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		22D64EC81B98AFD100BB7309 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		22D64EC91B98AFD100BB7309 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +186,8 @@
 				228E6C871B95289C00FABD04 /* Images.xcassets */,
 				228E6C7B1B95289C00FABD04 /* Info.plist */,
 				228E6C7C1B95289C00FABD04 /* main.m */,
+				22D64EC41B98AE1600BB7309 /* Constants.h */,
+				22D64EC51B98AE1600BB7309 /* Constants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -233,6 +253,7 @@
 		228E6CCA1B95337300FABD04 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				22D64EC71B98AFA700BB7309 /* User Controllers */,
 				228E6C811B95289C00FABD04 /* ViewController.h */,
 				228E6C821B95289C00FABD04 /* ViewController.m */,
 				228E6CDC1B9617F900FABD04 /* AddReminderDetailViewController.h */,
@@ -248,6 +269,8 @@
 				228E6CD71B96107600FABD04 /* Stack.m */,
 				228E6CD91B96142B00FABD04 /* Queue.h */,
 				228E6CDA1B96142B00FABD04 /* Queue.m */,
+				229945FD1B9752A00001C305 /* Anagrams.h */,
+				229945FE1B9752A00001C305 /* Anagrams.m */,
 			);
 			name = "Code Challenges";
 			path = RemindMe;
@@ -258,6 +281,8 @@
 			children = (
 				228E6CD11B9604E700FABD04 /* LocationService.h */,
 				228E6CD21B9604E700FABD04 /* LocationService.m */,
+				22D64EC11B98A4D500BB7309 /* ParseService.h */,
+				22D64EC21B98A4D500BB7309 /* ParseService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -265,8 +290,21 @@
 		228E6CD01B9604B300FABD04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				22D64EBE1B9799E100BB7309 /* Reminder.h */,
+				22D64EBF1B9799E100BB7309 /* Reminder.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		22D64EC71B98AFA700BB7309 /* User Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				229946001B9762CE0001C305 /* LoginViewController.h */,
+				229946011B9762CE0001C305 /* LoginViewController.m */,
+				22D64EC81B98AFD100BB7309 /* SignUpViewController.h */,
+				22D64EC91B98AFD100BB7309 /* SignUpViewController.m */,
+			);
+			name = "User Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,13 +416,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D64EC01B9799E100BB7309 /* Reminder.m in Sources */,
+				22D64EC31B98A4D500BB7309 /* ParseService.m in Sources */,
+				229945FF1B9752A00001C305 /* Anagrams.m in Sources */,
 				228E6CDB1B96142B00FABD04 /* Queue.m in Sources */,
 				228E6CD81B96107600FABD04 /* Stack.m in Sources */,
 				228E6C831B95289C00FABD04 /* ViewController.m in Sources */,
+				229946021B9762CE0001C305 /* LoginViewController.m in Sources */,
+				22D64EC61B98AE1600BB7309 /* Constants.m in Sources */,
 				228E6CD31B9604E700FABD04 /* LocationService.m in Sources */,
 				228E6CC71B952B3600FABD04 /* Keys.m in Sources */,
 				228E6C801B95289C00FABD04 /* AppDelegate.m in Sources */,
 				228E6C7D1B95289C00FABD04 /* main.m in Sources */,
+				22D64ECA1B98AFD100BB7309 /* SignUpViewController.m in Sources */,
 				228E6CDE1B9617F900FABD04 /* AddReminderDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

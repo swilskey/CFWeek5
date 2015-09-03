@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "Keys.h"
+#import "Reminder.h"
 
 @interface AppDelegate ()
 
@@ -22,12 +23,23 @@
   
   [Parse enableLocalDatastore];
   
+  //Add Subclasses
+  [Reminder registerSubclass];
+  
   // Initialize Parse.
   [Parse setApplicationId:kApplicationKey
                 clientKey:kClientId];
   
   // [Optional] Track statistics around application opens.
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+  
+  PFUser *user = [PFUser currentUser];
+  if (user) {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UINavigationController *mainNavController = [storyboard instantiateViewControllerWithIdentifier:@"MainNavController"];
+    self.window.rootViewController = mainNavController;
+  }
+  
   return YES;
 }
 
