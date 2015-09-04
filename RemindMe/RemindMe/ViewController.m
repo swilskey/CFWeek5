@@ -10,6 +10,9 @@
 #import "AddReminderDetailViewController.h"
 #import "Constants.h"
 #import "Reminder.h"
+#import "ParseService.h"
+
+//Code Challenge
 #import "Stack.h"
 #import "Queue.h"
 #import "Anagrams.h"
@@ -37,12 +40,33 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
   self.reminders = [[NSMutableArray alloc] init];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderNotification:) name:kReminderNotification object:nil];
   
+  [ParseService findRemindersForUser:^(NSError *error, NSArray *reminders) {
+    if (error) {
+      NSLog(@"Error Getting Reminders");
+    } else {
+      self.reminders = [NSMutableArray arrayWithArray:reminders];
+      
+      for (int i = 0; i < self.reminders.count; i++) {
+        Reminder *newReminder = self.reminders[i];
+        PFGeoPoint *point = newReminder.location;
+        CLLocationCoordinate2D cords = CLLocationCoordinate2DMake(point.latitude, point.longitude);
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        annotation.coordinate = cords;
+        annotation.title = newReminder.title;
+        [self.mapView addAnnotation:annotation];
+        MKCircle *circle = [MKCircle circleWithCenterCoordinate:cords radius:newReminder.radius];
+        
+        [self.mapView addOverlay:circle];
+      }
+    }
+  }];
+  
   self.mapView.delegate = self;
   self.mapView.showsUserLocation = true;
-  
   [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(47.623557, -122.336071), 200, 200)];
   
   self.locationManager = [[CLLocationManager alloc] init];
@@ -82,8 +106,18 @@
 
 - (void)reminderNotification:(NSNotification *)notification {
   [self.reminders addObject:[notification.userInfo objectForKey:@"reminder"]];
-  Reminder *reminder = [self.reminders objectAtIndex:0];
-  NSLog(@"Reminder Name: %@", reminder.title);
+  Reminder *reminder = [notification.userInfo objectForKey:@"reminder"];
+  
+  PFGeoPoint *point = reminder.location;
+  CLLocationCoordinate2D cords = CLLocationCoordinate2DMake(point.latitude, point.longitude);
+  MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+  annotation.coordinate = cords;
+  annotation.title = reminder.title;
+  [self.mapView addAnnotation:annotation];
+  MKCircle *circle = [MKCircle circleWithCenterCoordinate:cords radius:reminder.radius];
+  
+  [self.mapView addOverlay:circle];
+  
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer *)pressed {
@@ -97,6 +131,7 @@
     [self.mapView addAnnotation:annotation];
   }
 }
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -105,6 +140,7 @@
   AddReminderDetailViewController *destinationVC = [segue destinationViewController];
   
   destinationVC.location = location;
+  [view removeFromSuperview];
 }
 
 #pragma mark - IBActions
@@ -124,7 +160,7 @@
 #pragma mark - CLLocationManagerDelgate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-  CLLocation *location = locations.lastObject;
+
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -162,6 +198,15 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
   [self performSegueWithIdentifier:@"ShowReminderDetailView" sender:view];
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+  MKCircleRenderer *renderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+  renderer.strokeColor = [UIColor redColor];
+  renderer.fillColor = [UIColor blueColor];
+  renderer.alpha = 0.3;
+  
+  return renderer;
 }
 
 #pragma mark - Dealocate

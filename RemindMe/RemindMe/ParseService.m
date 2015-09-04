@@ -39,4 +39,18 @@
   }];
 }
 
++ (void)findRemindersForUser:(void(^)(NSError *, NSArray *))completionHandler {
+  PFQuery *query = [PFQuery queryWithClassName:@"Reminder"];
+  [query whereKey:@"userId" equalTo:[PFUser currentUser].objectId];
+  
+  [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    if (error) {
+      completionHandler(error, nil);
+    } else {
+      completionHandler(nil, objects);
+    }
+  }];
+  
+}
+
 @end
