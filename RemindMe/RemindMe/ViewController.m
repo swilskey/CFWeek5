@@ -16,6 +16,7 @@
 #import "Stack.h"
 #import "Queue.h"
 #import "Anagrams.h"
+#import "LinkedList.h"
 
 #import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
@@ -40,6 +41,10 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  self.locationManager = [[CLLocationManager alloc] init];
+  self.locationManager.delegate = self;
+  [self.locationManager requestAlwaysAuthorization];
+  [self.locationManager startUpdatingLocation];
   
   self.reminders = [[NSMutableArray alloc] init];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderNotification:) name:kReminderNotification object:nil];
@@ -60,6 +65,13 @@
         [self.mapView addAnnotation:annotation];
         MKCircle *circle = [MKCircle circleWithCenterCoordinate:cords radius:newReminder.radius];
         
+        if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+          
+          CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(point.latitude, point.longitude) radius:newReminder.radius identifier:newReminder.title];
+          
+          [self.locationManager startMonitoringForRegion:region];
+          //    NSArray *regions = [[self.locationManager monitoredRegions] allObjects];
+        }
         [self.mapView addOverlay:circle];
       }
     }
@@ -69,16 +81,12 @@
   self.mapView.showsUserLocation = true;
   [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(47.623557, -122.336071), 200, 200)];
   
-  self.locationManager = [[CLLocationManager alloc] init];
-  self.locationManager.delegate = self;
-  [self.locationManager requestWhenInUseAuthorization];
-  [self.locationManager startUpdatingLocation];
   
   self.longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
   [self.mapView addGestureRecognizer:self.longPressRecognizer];
   
   //Code Challenges
-  /*
+/*
   Stack *stack = [[Stack alloc] init];
   [stack push:@35];
   [stack push:@54];
@@ -96,7 +104,17 @@
   if([Anagrams isStringAnagram:string1 of:string2]) {
     NSLog(@"is Anagram");
   }
-   */
+  
+  LinkedList *linkedList = [[LinkedList alloc] init];
+  [linkedList addValueToEnd:@"1"];
+  [linkedList addValueToEnd:@"2"];
+  [linkedList addValueToEnd:@"3"];
+  [linkedList printList];
+  [linkedList removeLastValue];
+  [linkedList printList];
+  [linkedList removeFirstNode];
+  [linkedList printList];
+ */
   
 }
 
@@ -165,7 +183,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
   switch (status) {
-    case kCLAuthorizationStatusAuthorizedWhenInUse:
+    case kCLAuthorizationStatusAuthorizedAlways:
       [self.locationManager startUpdatingLocation];
       break;
     default:
@@ -174,6 +192,14 @@
   }
 }
 
+- (void) locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+  UILocalNotification *notification = [[UILocalNotification alloc] init];
+  
+  notification.alertTitle = region.identifier;
+  notification.alertBody = @"Entered Region";
+  
+  [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
 #pragma mark - MKMapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
