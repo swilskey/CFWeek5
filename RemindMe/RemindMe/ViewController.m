@@ -16,6 +16,7 @@
 #import "Stack.h"
 #import "Queue.h"
 #import "Anagrams.h"
+#import "StringSum.h"
 #import "LinkedList.h"
 
 #import <Parse/Parse.h>
@@ -86,7 +87,7 @@
   [self.mapView addGestureRecognizer:self.longPressRecognizer];
   
   //Code Challenges
-/*
+
   Stack *stack = [[Stack alloc] init];
   [stack push:@35];
   [stack push:@54];
@@ -105,6 +106,9 @@
     NSLog(@"is Anagram");
   }
   
+  NSString *string3 = @"th4is is a s2tring123";
+  NSLog(@"Int Value = %d", [StringSum stringNumberCount:string3]);
+  
   LinkedList *linkedList = [[LinkedList alloc] init];
   [linkedList addValueToEnd:@"1"];
   [linkedList addValueToEnd:@"2"];
@@ -114,7 +118,7 @@
   [linkedList printList];
   [linkedList removeFirstNode];
   [linkedList printList];
- */
+ 
   
 }
 

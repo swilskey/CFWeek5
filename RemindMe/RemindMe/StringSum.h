@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface StringSum : NSObject
-
++ (int)stringNumberCount:(NSString *)string1;
 @end
